@@ -11,16 +11,27 @@ The idea to solve this problem is to iterate the val from start to end using a f
 Below is the Python implementation:
 
 Code :
-# Python program to print all 
-# prime number in an interval
-# number should be greater than 1
-start = 11
-end = 25
-  
-for i in range(start, end+1):
-  if i>1:
-    for j in range(2,i):
-        if(i % j==0):
-            break
-    else:
-        print(i)
+public class Prime {
+
+    public static void main(String[] args) {  //prime number which has no positive divisors other than 1
+
+        int low = 20, high = 50;              
+
+        while (low < high) {
+            boolean flag = false;
+
+            for(int i = 2; i <= low/2; ++i) {
+                // condition for nonprime number
+                if(low % i == 0) {
+                    flag = true;
+                    break;
+                }
+            }
+
+            if (!flag && low != 0 && low != 1)
+                System.out.print(low + " ");
+
+            ++low;
+        }
+    }
+}
